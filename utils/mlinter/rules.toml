@@ -258,7 +258,7 @@ class FooConfig(PreTrainedConfig):
 
 # modeling_foo.py
 class FooForCausalLM(FooPreTrainedModel):
-    _tied_weights_keys = ["lm_head.weight"]
+    _tied_weights_keys = {"lm_head.weight": "model.embed_tokens.weight"}
 '''
 good_example = '''
 # configuration_foo.py
@@ -269,5 +269,5 @@ class FooConfig(PreTrainedConfig):
 
 # modeling_foo.py
 class FooForCausalLM(FooPreTrainedModel):
-    _tied_weights_keys = ["lm_head.weight"]
+    _tied_weights_keys = {"lm_head.weight": "model.embed_tokens.weight"}
 '''
